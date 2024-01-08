@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 import CountryList from "./CountryList";
 import stateContext from "../../../Store/Context/state-context";
 
-export default function Countries(props) {
+export default function Countries() {
   const { fetchCountries, searchedCountry, region, selectActive, search } = useContext(stateContext);
 
   const mappedCountries = fetchCountries.map((country) => {
