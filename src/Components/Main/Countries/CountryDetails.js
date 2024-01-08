@@ -15,7 +15,7 @@ export default function CountryDetails(props) {
     },
     end: {
       x: 0,
-      transition: {},
+      transition: {originX: 0.5},
     },
   };
 

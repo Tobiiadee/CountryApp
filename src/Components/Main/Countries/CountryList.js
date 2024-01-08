@@ -33,17 +33,18 @@ export default function CountryList(props) {
     borderCountries: props.borderCountries,
   };
 
-
   return (
     <div>
-      {clickCountry && <CountryDetails details={details} closeCountry={closeClickedHandler} />}
+      {clickCountry && (
+        <CountryDetails details={details} closeCountry={closeClickedHandler} />
+      )}
       <Card
-        className={`mb-6 h-96 md:w-56 md:h-80 hover:scale-105 focus:scale-105 md:transition cursor-pointer ${
+        className={`mb-6 h-72 md:w-56 md:h-80 hover:scale-105 focus:scale-105 md:transition cursor-pointer ${
           !isActive ? "" : "bg-secondary-1"
         }`}
         onClick={clickHandler}>
         <div>
-          <div className="h-36 overflow-hidden">
+          <div className='h-36 overflow-hidden'>
             <img src={props.svg} alt={props.alt} className='object-fit' />
           </div>
           <div className='px-8 py-4'>
