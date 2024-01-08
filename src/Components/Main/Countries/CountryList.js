@@ -39,7 +39,7 @@ export default function CountryList(props) {
         <CountryDetails details={details} closeCountry={closeClickedHandler} />
       )}
       <Card
-        className={`mb-6 h-72 md:w-56 md:h-80 hover:scale-105 focus:scale-105 md:transition cursor-pointer ${
+        className={`mb-6 h-72 md:w-56 md:h-80 md:hover:scale-105 focus:scale-105 md:transition cursor-pointer ${
           !isActive ? "" : "bg-secondary-1"
         }`}
         onClick={clickHandler}>

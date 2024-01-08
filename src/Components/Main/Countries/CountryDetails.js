@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useContext } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import stateContext from "../../../Store/Context/state-context";
 import Modal from "../../UI/Modal/Modal";
 import Card from "../../UI/Card/Card";
@@ -15,24 +15,23 @@ export default function CountryDetails(props) {
     },
     end: {
       x: 0,
-      transition: {originX: 0.5},
+      transition: {},
     },
   };
 
   return (
     <Modal onClick={props.closeCountry}>
       <AnimatePresence>
-        <Card
+        <motion.Card
           variants={CountryDetailsVariant}
           animate='end'
           initial='initial'
-          exit={{ x: -250 }}
-          className={`flex flex-col gap-14 w-full md:w-4/6 md:mx-auto rounded shadow-md md:mt-10 px-10 py-10 fixed z-50 h-full md:h-5/6 left-0 top-0 md:left-52 md:top-8 slide ${
+          className={`flex flex-col gap-14 w-full md:w-4/6 md:mx-auto rounded shadow-md md:mt-10 md:px-10 py-10 fixed z-50 h-full md:h-5/6 left-0 top-0 md:left-52 md:top-8 font-body ${
             !isActive ? "bg-primary-2" : "bg-secondary-2"
           }`}>
-          <Card className='w-24 flex justify-center items-center mb-5 hover:shadow-lg'>
+          <Card className='w-24 flex justify-center items-center mb-5 hover:shadow-lg ml-8 md:ml-0'>
             <button
-              className='flex justify-center gap-2 items-center h-7 w-full'
+              className='flex justify-center gap-2 items-center h-7 w-full '
               onClick={props.closeCountry}>
               <span className=''>
                 <svg
@@ -59,8 +58,8 @@ export default function CountryDetails(props) {
               </span>
             </button>
           </Card>
-          <div className='grid md:flex justify-between w-full gap-8'>
-            <div className=' w-80 md:w-96 '>
+          <div className='grid md:flex justify-between w-4/5 md:w-full gap-8 mx-auto md:mx-0 '>
+            <div className=' w-80 self-center block mx-auto md:mx-0 md:w-96 '>
               <img src={props.details.svg} alt={props.details.alt} />
             </div>
 
@@ -138,7 +137,7 @@ export default function CountryDetails(props) {
               </div>
             </div>
           </div>
-        </Card>
+        </motion.Card>
       </AnimatePresence>
     </Modal>
   );
