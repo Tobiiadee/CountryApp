@@ -5,6 +5,7 @@ import stateContext from "../../Store/Context/state-context";
 import Input from "../UI/input/input";
 
 export default function SearchCountry() {
+
   const {
     active: isActive,
     search,
@@ -14,7 +15,7 @@ export default function SearchCountry() {
   return (
     <div>
       <div
-        className={`flex items-center rounded ${
+        className={`flex items-center md:justify-between rounded px-2 w-56 md:w-fit  ${
           !isActive ? "" : "border-none bg-secondary-1"
         } h-10 shadow-md`}>
         <svg
@@ -23,7 +24,7 @@ export default function SearchCountry() {
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className={`w-5 ml-2 text-gray1 ${
+          className={`w-1/12 md:w-5  text-gray1 ${
             !isActive ? "" : "text-primary-1"
           } h-10 shadow-md}`}>
           <path
@@ -38,7 +39,7 @@ export default function SearchCountry() {
           value={search}
           onChange={searchHandler}
           placeholder={"Search for a country..."}
-          className={`w-50 md:w-72 h-6 px-2 py-4 border-none outline-none text-black placeholder-gray1 text-sm font-body ${
+          className={`w-50 md:w-72 h-6 px-2 py-4 md:block border-none outline-none text-black placeholder-gray1 text-sm font-body ${
             !isActive ? "" : "bg-secondary-1 text-primary-1"
           }`}
         />

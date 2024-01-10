@@ -23,12 +23,16 @@ export const ActiveContextHandler = (props) => {
   const [region, setRegion] = useState([]);
   const [selectActive, setSelectActive] = useState(false);
 
+  //For Fetch
+  const [isLoading, setIsLoading] = useState(false);
+
   const onClickHandler = () => {
     setIsActive(!isActive);
   };
 
   async function fetchCountries() {
     try {
+      setIsLoading(true);
       const fetchCountry = await fetch("https://restcountries.com/v3.1/all");
 
       if (!fetchCountry.ok) {
@@ -55,6 +59,7 @@ export const ActiveContextHandler = (props) => {
         });
 
         setCountries(country);
+        setIsLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -62,7 +67,7 @@ export const ActiveContextHandler = (props) => {
   }
 
   useEffect(() => {
-    fetchCountries();
+      fetchCountries();
   }, []);
 
   //For Search
@@ -126,6 +131,7 @@ export const ActiveContextHandler = (props) => {
         uniqueRegions,
         selectRegionRef,
         selectActive,
+        isLoading
       }}>
       {props.children}
     </stateContext.Provider>

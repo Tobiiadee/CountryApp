@@ -16,12 +16,12 @@ export default function SelectedRegion(props) {
 
   return (
     <div>
-      <div className='relative flex items-center justify-around px-2'>
+      <div className='relative flex items-center justify-around px-2 '>
         <select
           name='region'
           ref={selectRegionRef}
           value={selectedRegion}
-          className={`border shadow-md rounded text-sm px-1 outline-none h-10 font-body leading-tight ${
+          className={`border shadow-md w-6 md:w-32 rounded text-sm px-1 outline-none h-10 font-body leading-tight ${
             !isActive ? "" : "bg-secondary-1 text-primary-1 border-none"
           }`}
           onChange={selectRegion}>
