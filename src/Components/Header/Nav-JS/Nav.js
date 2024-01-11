@@ -7,10 +7,7 @@ export default function Nav(props) {
   const { active: isActive, clickHandler } = useContext(stateContext);
 
   return (
-    <header
-      className={` w-full px-5 sm:px-10 py-5 shadow-md transition duration-300 ease-in-out  ${
-        !isActive ? "bg-primary-2" : "bg-secondary-1"
-      }`}>
+   
       <nav className='flex justify-between items-center font-body'>
         <h2
           className={`text-sm md:text-xl font-black font-body  ${
@@ -63,6 +60,5 @@ export default function Nav(props) {
           </span>
         </button>
       </nav>
-    </header>
   );
 }

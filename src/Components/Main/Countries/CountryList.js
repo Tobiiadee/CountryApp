@@ -1,15 +1,16 @@
 /** @format */
 
 import React, { useContext, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import CountryDetails from "./CountryDetails";
 import stateContext from "../../../Store/Context/state-context";
-import Card from "../../UI/Card/Card";
 
 export default function CountryList(props) {
   const [clickCountry, setClickCountry] = useState(false);
   const { active: isActive } = useContext(stateContext);
   const population = props.population.toLocaleString();
+
+  const index = props.index;
 
   const clickHandler = () => {
     setClickCountry(!clickCountry);
@@ -33,21 +34,36 @@ export default function CountryList(props) {
     borderCountries: props.borderCountries,
   };
 
+  const CountryListVariant = {
+    initial: {
+      y: "100vw",
+    },
+    end: {
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.1 * index,
+      },
+    },
+    exit: { x: -250 },
+  };
+
   return (
-    <AnimatePresence>
-      <div>
-        {clickCountry && (
-          <CountryDetails
-            details={details}
-            closeCountry={closeClickedHandler}
-          />
-        )}
-        <Card
-          className={`mb-6 h-72 md:w-56 md:h-80 md:hover:scale-105 focus:scale-105 md:transition cursor-pointer ${
-            !isActive ? "" : "bg-secondary-1"
-          }`}
-          onClick={clickHandler}>
-          <div>
+    <div>
+      {clickCountry && (
+        <CountryDetails details={details} closeCountry={closeClickedHandler} />
+      )}
+      <motion.div
+        variants={CountryListVariant}
+        animate='end'
+        initial='initial'
+        exit='exit'
+        className={`mb-6 h-72 md:w-56 shadow-md rounded md:h-80 md:hover:scale-105 focus:scale-105 md:transition cursor-pointer ${
+          !isActive ? "" : "bg-secondary-1"
+        }`}
+        onClick={clickHandler}>
+        <ul>
+          <li>
             <div className='h-36 overflow-hidden'>
               <img src={props.svg} alt={props.alt} className='object-fit' />
             </div>
@@ -68,9 +84,9 @@ export default function CountryList(props) {
                 Capital: <span className='text-gray1'>{props.capital}</span>
               </div>
             </div>
-          </div>
-        </Card>
-      </div>
-    </AnimatePresence>
+          </li>
+        </ul>
+      </motion.div>
+    </div>
   );
 }

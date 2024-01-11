@@ -39,7 +39,7 @@ export const ActiveContextHandler = (props) => {
         throw new Error("Fetch country failed: " + fetchCountry.status);
       } else {
         const res = await fetchCountry.json();
-        // console.log(res);
+        console.log(res);
 
         const country = res.map((country) => {
           return {

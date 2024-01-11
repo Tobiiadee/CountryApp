@@ -16,7 +16,7 @@ export default function Countries() {
     isLoading,
   } = useContext(stateContext);
 
-  const mappedCountries = fetchCountries.map((country) => {
+  const mappedCountries = fetchCountries.map((country, index) => {
     return (
       <CountryList
         key={country.key}
@@ -31,13 +31,14 @@ export default function Countries() {
         tld={country.tld}
         borderCountries={country.borders}
         languages={country.languages}
+        index={index}
       />
     );
   });
 
   const countrySearched =
     searchedCountry.length !== 0 &&
-    searchedCountry.map((country) => {
+    searchedCountry.map((country, index) => {
       return (
         <CountryList
           key={country.key}
@@ -52,11 +53,12 @@ export default function Countries() {
           tld={country.tld}
           borderCountries={country.borders}
           languages={country.languages}
+          index={index}
         />
       );
     });
 
-  const selectedRegion = region.map((country) => {
+  const selectedRegion = region.map((country, index) => {
     return (
       <CountryList
         key={country.key}
@@ -71,29 +73,30 @@ export default function Countries() {
         tld={country.tld}
         borderCountries={country.borders}
         languages={country.languages}
+        index={index}
       />
     );
   });
 
   const onCountriesLoading = isLoading && (
-    <div className=' col-span-1 md:col-span-3 mx-auto self-center'>
+    <div className=' col-span-1 md:col-span-3 sm:col-span-2 mx-auto self-center'>
       <svg
-        className="w-14 animate-spin"
+        className="w-10 animate-spin"
         viewBox='0 0 14 14'
         xmlns='http://www.w3.org/2000/svg'>
-        <g fill='none' fill-rule='evenodd'>
+        <g fill='none' fillRule='evenodd'>
           <circle
             cx='7'
             cy='7'
             r='6'
             stroke='#000000'
-            stroke-opacity='.1'
-            stroke-width='2'
+            strokeOpacity='.1'
+            strokeWidth='2'
           />
           <path
             fill='#000000'
-            fill-opacity='.1'
-            fill-rule='nonzero'
+            fillOpacity='.1'
+            fillRule='nonzero'
             d='M7 0a7 7 0 0 1 7 7h-2a5 5 0 0 0-5-5V0z'
           />
         </g>
@@ -110,7 +113,7 @@ export default function Countries() {
   const selectCountries = selectedRegion;
 
   return (
-    <div className='mt-8 mx-4 py-10 md:w-4/6 md:mx-auto grid gap-4 grid-cols-1 md:grid-cols-3'>
+    <div className='grid z-50 mx-4 py-10 md:w-4/6 md:mx-auto  gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
       {onCountriesLoading}
       {initialCountries}
       {!selectActive && searchCountries}

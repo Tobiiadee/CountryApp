@@ -7,6 +7,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      zIndex: {
+        "-5": "-5",
+        "-10": "-10",
+      },
       keyframes: {
         slide: {
           "0%": { transform: "translateX(-100%), opacity: 0"},

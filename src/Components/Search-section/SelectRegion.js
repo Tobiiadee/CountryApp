@@ -21,7 +21,7 @@ export default function SelectedRegion(props) {
           name='region'
           ref={selectRegionRef}
           value={selectedRegion}
-          className={`border shadow-md w-6 md:w-32 rounded text-sm px-1 outline-none h-10 font-body leading-tight ${
+          className={`border shadow-md w-6 sm:w-32 rounded text-sm px-1 outline-none h-10 font-body leading-tight ${
             !isActive ? "" : "bg-secondary-1 text-primary-1 border-none"
           }`}
           onChange={selectRegion}>

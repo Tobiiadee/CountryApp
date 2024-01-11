@@ -16,7 +16,7 @@ export default function SearchCountry() {
     <div>
       <div
         className={`flex items-center md:justify-between rounded px-2 w-56 md:w-fit  ${
-          !isActive ? "" : "border-none bg-secondary-1"
+          !isActive ? "bg-primary-1" : "border-none bg-secondary-1"
         } h-10 shadow-md`}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
