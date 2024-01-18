@@ -32,6 +32,7 @@ export default function CountryList(props) {
     tld: props.tld,
     languages: props.languages,
     borderCountries: props.borderCountries,
+    currencies: props.currencies,
   };
 
   const CountryListVariant = {

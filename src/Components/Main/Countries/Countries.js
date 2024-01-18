@@ -16,6 +16,7 @@ export default function Countries() {
     isLoading,
   } = useContext(stateContext);
 
+
   const mappedCountries = fetchCountries.map((country, index) => {
     return (
       <CountryList
@@ -29,7 +30,7 @@ export default function Countries() {
         nativeName={country.name.nativeName}
         subRegion={country.subRegion}
         tld={country.tld}
-        borderCountries={country.borders}
+        borderCountries={country.borderCountries}
         languages={country.languages}
         index={index}
       />
@@ -51,7 +52,7 @@ export default function Countries() {
           nativeName={country.name.nativeName}
           subRegion={country.subRegion}
           tld={country.tld}
-          borderCountries={country.borders}
+          borderCountries={country.borderCountries}
           languages={country.languages}
           index={index}
         />
@@ -71,7 +72,7 @@ export default function Countries() {
         nativeName={country.name.nativeName}
         subRegion={country.subRegion}
         tld={country.tld}
-        borderCountries={country.borders}
+        borderCountries={country.borderCountries}
         languages={country.languages}
         index={index}
       />
